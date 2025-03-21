@@ -1,3 +1,7 @@
+// Exceeding requirements features:
+// The program gets a List of Scriptures from a .json file
+// A diferent random Scripture is shown to the user each time
+
 
 class Program
 {
