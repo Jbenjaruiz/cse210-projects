@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        List<Scripture> scriptures = LoadScripturesFromJson();
+        List<Scripture> scriptures = FileManager.LoadScripturesFromJson("scriptures.json");
 
         if (scriptures.Count == 0)
         {
@@ -32,21 +32,5 @@ class Program
         }
 
         Console.WriteLine("\nAll words are hidden. Program ended.");
-    }
-
-    static List<Scripture> LoadScripturesFromJson()
-    {
-        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scriptures.json");
-
-        try
-        {
-            string jsonData = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<Scripture>>(jsonData) ?? new List<Scripture>();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error reading JSON file: {ex.Message}");
-            return new List<Scripture>();
-        }
     }
 }
